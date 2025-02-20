@@ -10,7 +10,6 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>  <!-- Set Java version -->
         <maven.compiler.target>11</maven.compiler.target>  <!-- Set Java version -->
-        <harnessArgLine></harnessArgLine>
     </properties>
 
     <dependencies>
@@ -48,17 +47,6 @@
                 <version>3.9.1.2184</version>
             </plugin>
 
-            <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>2.22.2</version>
-    <configuration>
-        <forkCount>1</forkCount>  <!-- Run tests in a single JVM -->
-        <reuseForks>true</reuseForks>  <!-- Reuse JVM forks -->
-        <argLine>${harnessArgLine} @{argLine}</argLine>
-    </configuration>
-</plugin>
-
-        </plugins>
+      </plugins>
     </build>
 </project>
