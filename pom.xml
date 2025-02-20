@@ -6,10 +6,12 @@
     <groupId>com.example</groupId>
     <artifactId>sample-java-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-<properties>
-        <harnessArgLine></harnessArgLine>
-</properties>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>  <!-- Set Java version -->
+        <maven.compiler.target>11</maven.compiler.target>  <!-- Set Java version -->
+        <harnessArgLine></harnessArgLine>
+    </properties>
 
     <dependencies>
         <!-- JUnit for Testing -->
@@ -28,21 +30,33 @@
 
     <build>
         <plugins>
-            <!-- SonarQube Scanner -->
+            <!-- Maven Compiler Plugin (Compiles Java Code) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>  <!-- Update based on your installed Java version -->
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <!-- SonarQube Scanner Plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.9.1.2184</version>
             </plugin>
-                 <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>2.22.2</version>
-    <configuration>
-        <argLine>${harnessArgLine}  @{argLine} </argLine>
-    </configuration>
-</plugin>
+
+            <!-- Maven Surefire Plugin (For Running JUnit Tests) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <argLine>${harnessArgLine} @{argLine}</argLine>
+                </configuration>
+            </plugin>
         </plugins>
-             
     </build>
 </project>
