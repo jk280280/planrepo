@@ -10,6 +10,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>  <!-- Set Java version -->
         <maven.compiler.target>11</maven.compiler.target>  <!-- Set Java version -->
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
     </properties>
 
     <dependencies>
