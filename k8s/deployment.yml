@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-deployment
+  labels:
+    app: harness
+spec:
+  replicas: 2  # Number of replicas for the pod (adjust as necessary)
+  selector:
+    matchLabels:
+      app: harness
+  template:
+    metadata:
+      labels:
+        app: harness
+    spec:
+      containers:
+      - name: harness
+        image: 650251703160.dkr.ecr.us-east-1.amazonaws.com/harness/promotional_pipeline
+        imagePullPolicy: Always  # Always pull the latest image
+        ports:
+        - containerPort: 80  # Adjust the container port if necessary
